@@ -1,0 +1,54 @@
+---
+layout: post
+title:  "Setup lvm2"
+date:   2017-12-15 12:34:07 +0000
+categories: jekyll update
+---
+
+Create physical volume
+pvcreate /dev/sda4
+
+Physical volume "/dev/sda4" successfully created
+
+Create a logical volume group called pve
+vgcreate pve /dev/sda4
+
+Volume group "pve" successfully created
+
+Create volume group
+If you really need to assign all space on partition this is the way to do it. This is not a good idea as snapshots will not work.
+
+lvcreate -l 100%VG -n storage pve
+
+to use 90%
+lvcreate -l 90%VG -n storage pve
+
+If you plan to support lvm snapshots do not use 100% space as you need a second lvm volume.
+
+Logical volume "storage" created
+
+Create filesystem
+
+mkfs.ext4 /dev/mapper/pve-storage
+
+Writing superblocks and filesystem accounting information: done
+
+Display your setup
+
+Display Physical volume
+
+pvdisplay -v -m
+
+Display Volume group
+
+vgdisplay
+
+Display Logical volume
+
+LVM volumes follow the convention: /dev//.
+
+lvdisplay /dev/pve/storage
+
+Snapshots
+
+N.B. when LVM2 snapshot, the destination of the backup must be outside the LVM volume that contains the VM you are backing up (i.e. if your VM is in /pve/data that is mounted as /var/lib/vz, you can't save the backup in /var/lib/vz/dump).
