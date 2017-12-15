@@ -4,3 +4,22 @@ title:  "Varnish - do not cache blank pages"
 date:   2017-12-15 12:34:07 +0000
 categories: jekyll update
 ---
+This is a way not to cache blank pages or WSOD (white screen of death pages). WSOD pages are pages that have Content-Length: 0 header and return a HTTP/1.1 200 OK response which is not and error and Varnish will cache it.
+
+Check http headers with curl.
+
+
+$ curl hadzimahmutovic.com -I
+HTTP/1.1 200 OK
+Content-Length: 0
+
+Now the Varnish part.
+
+
+sub vcl_fetch {
+
+if (beresp.http.Content-Length == "0"){
+return(restart);
+}
+return(deliver);
+}
