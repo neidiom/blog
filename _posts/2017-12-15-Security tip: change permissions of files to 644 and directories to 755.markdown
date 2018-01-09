@@ -8,9 +8,12 @@ categories: jekyll update
 For files use:
 
 
+{% highlight bash %}
 user@server:~/web$ find ~ -type f -exec chmod 644 {} \;
+{% endhighlight %}
 
 For directories use:
 
-
+{% highlight bash %}
 user@server:~/web$ find ~ -type d -exec chmod 755 {} \;
+{% endhighlight %}

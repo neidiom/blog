@@ -2,7 +2,7 @@
 layout: post
 title:  "Amazon EC2 routing second network interface"
 date:   2017-12-15 12:34:07 +0000
-categories: jekyll update
+categories: amazon ec2
 ---
 
 I had to run a second network interface only for https and this is howto do it:

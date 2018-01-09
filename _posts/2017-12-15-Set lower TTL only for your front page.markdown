@@ -7,6 +7,7 @@ categories: varnish update
 To lower the load on my backend I increased the TTL value for all content except for front page. This is really simple as shown below.
 
 
+{% highlight bash %}
 sub vcl_fetch {
 # TTL for front page
 if ((req.url == "/")){
@@ -15,3 +16,4 @@ set beresp.ttl = 30s;
 set beresp.ttl = 240s;
 }
 }
+{% endhighlight %}

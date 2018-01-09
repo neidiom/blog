@@ -10,10 +10,12 @@ zmprov ma user@domain.com zimbraMailTransport smtp:mail.example.com:25
 
 Relay/Route all mail destined for a particular domain
 
+{% highlight bash %}
 zmprov
 md example.com zimbraMailCatchAllAddress @example.com
 md example.com zimbraMailCatchAllForwardingAddress @example.com
 md example.com zimbraMailTransport smtp:other-mta.domain.com
+{% endhighlight %}
 
 Import user's encrypted password
 

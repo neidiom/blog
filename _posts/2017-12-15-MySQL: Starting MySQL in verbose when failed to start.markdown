@@ -6,5 +6,6 @@ categories: jekyll update
 ---
 When mysqld failes to start, manually run it in verbose mode:
 
-
+{% highlight bash %}
 # mysqld --user=mysql --verbose
+{% endhighlight %}

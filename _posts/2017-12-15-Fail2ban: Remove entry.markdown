@@ -9,9 +9,13 @@ If you use fail2ban with route instead of iptables this is how you remove an ip 
 
 Get current entries
 
+{% highlight bash %}
 route -n
+{% endhighlight %}
 
 This is how you remove an ip address.
 
+{% highlight bash %}
 fail2ban-client get sasl actionunban
-ip route del unreachable 
+ip route del unreachable
+{% endhighlight %}

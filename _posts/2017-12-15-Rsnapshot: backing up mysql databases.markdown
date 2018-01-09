@@ -6,47 +6,68 @@ categories: jekyll update
 ---
 Install mysql-client if not installed, this will provide the mysqldump utility
 
-# apt-get install mysql-client
+{% highlight bash %}
+apt-get install mysql-client
+{% endhighlight %}
 
-
-# cp /usr/share/doc/rsnapshot/examples/utils/backup_mysql.sh /usr/local/bin/
+{% highlight bash %}
+cp /usr/share/doc/rsnapshot/examples/utils/backup_mysql.sh /usr/local/bin/
+{% endhighlight %}
 
 Make sure your backup scripts are owned by root, and not writable by anyone else.
 
-# chown root.root /usr/local/bin/backup_mysql.sh
-# chmod o-w /usr/local/bin/backup_mysql.sh
+{% highlight bash %}
+chown root.root /usr/local/bin/backup_mysql.sh
+chmod o-w /usr/local/bin/backup_mysql.sh
+{% endhighlight %}
 
 This scripts is designed only to back up all databases to a single file.
 
 Edit script
 
-# nano /usr/local/bin/backup_mysql.sh
+{% highlight bash %}
+nano /usr/local/bin/backup_mysql.sh
+{% endhighlight %}
 
 replace
 
 
+{% highlight bash %}
 /usr/bin/mysqldump --all-databases > mysqldump_all_databases.sql
+{% endhighlight %}
 
 with
 
-
+{% highlight bash %}
 /usr/bin/mysqldump --defaults-file=/etc/mysql/debian.cnf --all-databases > mysqldump_all_databases.sql
+{% endhighlight %}
 
 If you need to dump a single database use line below
 
 
+{% highlight bash %}
 /usr/bin/mysqldump --defaults-file=/etc/mysql/debian.cnf DATABASE > DATABASE.SQL
+{% endhighlight %}
+
 
 Add script to rsnapshot
 
 Edit rsnapshot config
 
-# nano /etc/rsnapshot.conf
+{% highlight bash %}
+nano /etc/rsnapshot.conf
+{% endhighlight %}
+
 
 Under BACKUP POINTS / SCRIPTS add following
 
+{% highlight bash %}
 backup_script /usr/local/bin/backup_mysql.sh localhost/mysqldump
+{% endhighlight %}
+
 
 Test config
 
-# rsnapshot configtest
+{% highlight bash %}
+rsnapshot configtest
+{% endhighlight %}

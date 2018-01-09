@@ -11,29 +11,41 @@ Can be found here http://hwraid.le-vert.net/wiki/DebianPackages
 
 Show your virtual drive information
 
+{% highlight bash %}
 megacli -LDInfo -Lall -Aall
+{% endhighlight %}
 
 Show your RAID Controller info
 
+{% highlight bash %}
 lspci | grep RAID
 01:00.0 RAID bus controller: LSI Logic / Symbios Logic MegaRAID SAS 2108 [Liberator] (rev 05)
+{% endhighlight %}
 
 Show physical drive info
 
+{% highlight bash %}
 megacli -PDList -aALL
+{% endhighlight %}
 
 Filter usefull info
 
+{% highlight bash %}
 megacli -PDList -aAll | egrep "Enclosure Device ID:|Slot Number:|Inquiry Data:|Error Count:|state"
+{% endhighlight %}
 
 Show only RAID Level
 
+{% highlight bash %}
 megacli -LDInfo -Lall -Aall | grep Level
+{% endhighlight %}
 
 Explanation of Raid Levels:
 
+{% highlight bash %}
 ['Primary-0, Secondary-0, RAID Level Qualifier-0'] = RAID-0
 ['Primary-1, Secondary-0, RAID Level Qualifier-0'] = RAID-1
 ['Primary-5, Secondary-0, RAID Level Qualifier-3'] = RAID-5
 ['Primary-6, Secondary-0, RAID Level Qualifier-3'] = RAID-6
 ['Primary-1, Secondary-3, RAID Level Qualifier-0'] = RAID-10
+{% endhighlight %}

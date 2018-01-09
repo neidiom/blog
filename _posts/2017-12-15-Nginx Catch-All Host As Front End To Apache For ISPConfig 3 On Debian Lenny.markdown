@@ -32,38 +32,45 @@ Configure Apache
 Configure Apache to run on port 82 in /etc/apache2/ports.conf and in all of your virtual hosts. To make it easier use sed command:
 
 
+{% highlight bash %}
 # sed -ie 's/YOUR-IP:80/YOUR-IP:82/g' /etc/apache2/sites-available/*.vhost
+{% endhighlight %}
 
 I assume your virtual host is IP based - your vhost could have *:80 instead of IP:80.
 
 The sed command will make backup files of your .vhost files which will have .vhoste extension. You can move the backup vhost files:
 
+{% highlight bash %}
 mkdir /root/apache2_vhost_backup/
 mv /etc/apache2/sites-available/*.vhoste /root/apache2_vhost_backup/
+{% endhighlight %}
 
 Restart apache and use netstat check if it is running on port 82:
 
 
-# /etc/init.d/apache2 restart
+{% highlight bash %}
+/etc/init.d/apache2 restart
+netstat -tunap | grep apache2
+{% endhighlight %}
 
-# netstat -tunap | grep apache2
-
+{% highlight bash %}
 tcp 0 0 0.0.0.0:82 0.0.0.0:* LISTEN 7630/apache2
+{% endhighlight %}
 
 Now you have to change the ISPConfig Apache templates. Copy them to your conf-custom directory:
 
 
+{% highlight bash %}
 # cd /usr/local/ispconfig/server/
 
 
 # cp conf/apache_ispconfig.conf.master conf-custom/
-
-
-# cp conf/vhost.conf.master conf-custom/
+cp conf/vhost.conf.master conf-custom/
+{% endhighlight %}
 
 Open the two files and change :80 to :82. Just to be sure run grep command and check if the output matches:
 
-
+{% highlight bash %}
 # grep :82 -i /usr/local/ispconfig/server/conf-custom/*
 
 
@@ -71,42 +78,47 @@ Open the two files and change :80 to :82. Just to be sure run grep command and c
 
 /usr/local/ispconfig/server/conf-custom/vhost.conf.master:
 :82>
+{% endhighlight %}
 
 You will see all requests as originating from localhost (127.0.0.1). To see users real IP address you will have to install libapache2-mod-rpaf:
 
-
+{% highlight bash %}
 # apt-get install libapache2-mod-rpaf
+{% endhighlight %}
 
 Add the following to /etc/apache2/apache2.conf:
 
-
+{% highlight bash %}
 # nano /etc/apache2/apache2.conf
 
 
 RPAFsethostname On
 RPAFproxy_ips 127.0.0.1 YOU_IP_ADDRESS
 
-
+{% endhighlight %}
 
 Installing And Configure Nginx
 Enable the lenny-backports repository, you will find the instructions on http://backports.org/.
 
-
-#apt-get install nginx
+{% highlight bash %}
+apt-get install nginx
+{% endhighlight %}
 
 Remove the default vhost:
 
-
+{% highlight bash %}
 # rm /etc/nginx/sites-available/default
+{% endhighlight %}
 
 Open the file:
 
-
+{% highlight bash %}
 # nano /etc/nginx/sites-available/default
+{% endhighlight %}
 
 Add the following content to the file:
 
-
+{% highlight bash %}
 server {
 listen 80 default;
 server_name _;
@@ -133,10 +145,11 @@ proxy_set_header Host $host;
 proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
 }
 }
+{% endhighlight %}
 
 or do a proxy_pass to your server's IP address
 
-
+{% highlight bash %}
 server {
 listen 80 default;
 server_name _;
@@ -163,6 +176,7 @@ proxy_set_header Host $host;
 proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
 }
 }
+{% endhighlight %}
 
 Do not forget to replace IP-ADDRESS with your web server's ip address.
 

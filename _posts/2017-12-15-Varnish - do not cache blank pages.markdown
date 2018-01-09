@@ -9,13 +9,16 @@ This is a way not to cache blank pages or WSOD (white screen of death pages). WS
 Check http headers with curl.
 
 
+{% highlight bash %}
 $ curl hadzimahmutovic.com -I
 HTTP/1.1 200 OK
 Content-Length: 0
+{% endhighlight %}
 
 Now the Varnish part.
 
 
+{% highlight bash %}
 sub vcl_fetch {
 
 if (beresp.http.Content-Length == "0"){
@@ -23,3 +26,4 @@ return(restart);
 }
 return(deliver);
 }
+{% endhighlight %}

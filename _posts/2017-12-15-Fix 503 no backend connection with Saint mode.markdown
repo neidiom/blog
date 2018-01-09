@@ -6,12 +6,14 @@ categories: varnish saintmode saintmode_threshold
 ---
 If you are getting allot 503 FetchError c no backend connection error and you enabled Saint mode than you have to add following to your backend.
 
-
+{% highlight bash %}
 .saintmode_threshold = 0;
+{% endhighlight %}
 
 Option "saintmode_threshold" tells Varnish how ,any items can be vlacklisted by saint mode before it makes your backend sick. Is setting saintmode threshold to 0 still produces "no backend errors" try sett try setting it to a very high number.
 
 To check if you have such error use following command
 
-
+{% highlight bash %}
 # varnishlog -c -m TxStatus:503 | grep FetchError
+{% endhighlight %}

@@ -16,7 +16,9 @@ Add the security repository to cron-apt
 
 Open con-apt config file
 
-# nano /etc/cron-apt/config
+{% highlight bash %}
+nano /etc/cron-apt/config
+{% endhighlight %}
 
 search for line and uncomment the line starting with OPTIONS
 
@@ -25,8 +27,9 @@ OPTIONS="-o quiet=1 -o Dir::Etc::SourceList=/etc/apt/security.sources.list"
 
 add the security deb http://security.debian.org/ squeeze/updates main contrib non-free repository to security.sources.list
 
-
-# nano /etc/apt/security.sources.list
+{% highlight bash %}
+nano /etc/apt/security.sources.list
+{% endhighlight %}
 
 Configuribng cron-apt
 
@@ -34,18 +37,21 @@ The best approach to automatically upgrading is to use a dedicated program like 
 
 Install the app
 
-
+{% highlight bash %}
 # apt-get install cron-apt
+{% endhighlight %}
 
 Specify when to run, by default it runs every night at 4 o'clock.
 
-
+{% highlight bash %}
 # nano /etc/cron.d/cron-apt
+{% endhighlight %}
 
 change the MAILON option /etc/cron-apt/config which will email the results of the nightly run to specified email address
 
-
+{% highlight bash %}
 # nano /etc/cron-apt/config
+{% endhighlight %}
 
 set to always to get notified on every change
 
@@ -59,7 +65,9 @@ Configure the upgrade action
 
 edit action config file
 
+{% highlight bash %}
 # nano /etc/cron-apt/action.d/3-download
+{% endhighlight %}
 
 replace the contents with
 
