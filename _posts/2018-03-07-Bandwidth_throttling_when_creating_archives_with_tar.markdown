@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Bandwidth throttling when creating archives with tar"
-date:   2017-12-15 12:34:07 +0000
+date:   2018-03-07 12:34:07 +0000
 categories: pv cstream bandwidth throttling tar
 ---
 
