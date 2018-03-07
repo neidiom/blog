@@ -5,7 +5,7 @@ date:   2017-12-15 12:34:07 +0000
 categories: jekyll update
 ---
 
-These are posts that which still have wrong date stamp.
+These are posts that have wrong date stamp. I will update them ASAP.
 
 ````
 CSF: Install and Setup,1326971607

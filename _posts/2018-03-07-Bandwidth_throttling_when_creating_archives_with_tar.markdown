@@ -6,7 +6,7 @@ categories: pv cstream bandwidth throttling tar
 ---
 
 
-If you need to create a large archive and want to spare your disk big IO operations then use the pv or cstream utility.
+If you need to create a large archive and want to spare your disk big IO operations then use the `pv` or `cstream` utility.
 
 
 ## PV
