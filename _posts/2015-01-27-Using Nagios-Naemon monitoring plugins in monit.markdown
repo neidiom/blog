@@ -1,8 +1,8 @@
 ---
 layout: post
 title:  "Using Nagios-Naemon monitoring plugins in monit"
-date:   2017-12-15 12:34:07 +0000
-categories: jekyll update
+date:   2015-01-27 12:34:07 +0000
+categories: nagios naemon monito
 ---
 This is the way I use external naemon plugin for smtp authentication in monit.
 

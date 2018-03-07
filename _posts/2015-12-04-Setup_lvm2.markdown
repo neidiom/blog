@@ -1,8 +1,8 @@
 ---
 layout: post
 title:  "Setup lvm2"
-date:   2017-12-15 12:34:07 +0000
-categories: jekyll update
+date:   2015-12-04 12:34:07 +0000
+categories: lvm2 setup
 ---
 
 Create physical volume

@@ -1,8 +1,8 @@
 ---
 layout: post
 title:  "Testing Saint mode in Varnish"
-date:   2017-12-15 12:34:07 +0000
-categories: jekyll update
+date:   2015-02-24 12:34:07 +0000
+categories: varnish
 ---
 
 Sometimes your website will return a 500 error code with a blank page. In that case use curl to check the http status code.

@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "Set lower TTL only for your front page"
-date:   2017-12-15 12:34:07 +0000
-categories: varnish update
+title:  "Varnish: Set lower TTL only for your front page"
+date:   2015-02-17 12:34:07 +0000
+categories: varnish
 ---
 To lower the load on my backend I increased the TTL value for all content except for front page. This is really simple as shown below.
 
