@@ -16,8 +16,6 @@ Sphinx As MySQL Storage Engine (SphinxSE),1264679499
 Nginx Catch-All Host As Front End To Apache For ISPConfig 3 On Debian Lenny,1264679687
 Automatic installation of security patches on Debian,1335804320
 Chroot SFTP Users on Debian,1333058400
-Rsnapshot: Backup solution on Debian,1331766000
-Rsnapshot: backing up mysql databases,1336600800
 Drupal 7: Disable core and contrib css and js files,1347471233
 Drupal 7: My node.tpl.php file,1347524247
 Downgrade a .deb package to a lower version,1246489200
@@ -33,8 +31,6 @@ Asterisk: When Hangup does not work use Congestion,1385030483
 ISPConfig: Custom php.ini for ISPConfig,1386089675
 MySQL: Starting MySQL in verbose when failed to start,1386247634
 Automatically lower php fast-cgi max requests settings for all domains,1387102504
-Security tip: change permissions of files to 644 and directories to 755,1389272660
-Preventing attackers discovering database dumps,1395919584
 "Fix ""Cannot set LC_ALL to default locale""",1397733311
 Amazon EC2 routing second network interface,1401036313
 Set update frequency with drush,1407762726

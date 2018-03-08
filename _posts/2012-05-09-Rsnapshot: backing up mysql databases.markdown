@@ -1,8 +1,8 @@
 ---
 layout: post
 title:  "Rsnapshot: backing up mysql databases"
-date:   2017-12-15 12:34:07 +0000
-categories: jekyll update
+date:   2012-05-09 12:34:07 +0000
+categories: rsnapshot mysql backup
 ---
 Install mysql-client if not installed, this will provide the mysqldump utility
 
