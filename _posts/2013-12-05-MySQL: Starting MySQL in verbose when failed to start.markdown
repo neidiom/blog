@@ -1,8 +1,8 @@
 ---
 layout: post
 title:  "MySQL: Starting MySQL in verbose when failed to start"
-date:   2017-12-15 12:34:07 +0000
-categories: jekyll update
+date:   2013-12-05 12:34:07 +0000
+categories: mysql verbose
 ---
 When mysqld failes to start, manually run it in verbose mode:
 

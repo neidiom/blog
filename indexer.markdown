@@ -13,7 +13,6 @@ My Linux cheat sheet,1295436000
 My iptables cheat sheet,1326972864
 MySQL: My Cheat sheet,1327040872
 Sphinx As MySQL Storage Engine (SphinxSE),1264679499
-Nginx Catch-All Host As Front End To Apache For ISPConfig 3 On Debian Lenny,1264679687
 Automatic installation of security patches on Debian,1335804320
 Chroot SFTP Users on Debian,1333058400
 Drupal 7: Disable core and contrib css and js files,1347471233
@@ -29,7 +28,6 @@ Horde: Install Horde via pear as separate instance,1370601501
 export users for shares,1375694305
 Asterisk: When Hangup does not work use Congestion,1385030483
 ISPConfig: Custom php.ini for ISPConfig,1386089675
-MySQL: Starting MySQL in verbose when failed to start,1386247634
 Automatically lower php fast-cgi max requests settings for all domains,1387102504
 "Fix ""Cannot set LC_ALL to default locale""",1397733311
 Amazon EC2 routing second network interface,1401036313
