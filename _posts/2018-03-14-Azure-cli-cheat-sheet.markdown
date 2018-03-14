@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Azure CLI Cheat Sheet"
-date:   2018-03-14 11:25:07 +0100
+date:   2018-03-14 23:25:07 +0100
 categories: azure azure-cli cheatsheet
 ---
 
