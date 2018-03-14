@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Setup Azure-cli and get subscription information"
-date: 2018-03-14 12:55:09 +0000
+date:   2018-03-14 12:34:07 +0000
 categories: azure azure-cli
 ---
 These are my notes on how to install `azure-cli` and do some basic setup.
