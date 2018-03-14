@@ -54,3 +54,24 @@ az account show
 ````
 az account show -s "YOUR-CUSTOM-SUBSCRIPTION-NAME"
 ````
+
+
+## Filtering cheatsheet
+
+* Show only `tenantId`
+
+````
+az account show -o json | jq ".tenantId"
+````
+
+* Show ony subscription id
+
+````
+az account show -o json | jq ".id"
+````
+
+* Show both `tenantId` and subscription `id`
+
+````
+az account show -o json | jq ".tenantId, .id"
+````
