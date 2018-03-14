@@ -1,0 +1,77 @@
+---
+layout: post
+title:  "Setup lvm2"
+date:   2015-12-04 12:34:07 +0000
+categories: lvm2 setup
+---
+
+Create physical volume
+
+{% highlight bash %}
+pvcreate /dev/sda4
+{% endhighlight %}
+
+Physical volume "/dev/sda4" successfully created
+
+Create a logical volume group called pve
+
+{% highlight bash %}
+vgcreate pve /dev/sda4
+{% endhighlight %}
+
+Volume group "pve" successfully created
+
+Create volume group
+If you really need to assign all space on partition this is the way to do it. This is not a good idea as snapshots will not work.
+
+{% highlight bash %}
+lvcreate -l 100%VG -n storage pve
+{% endhighlight %}
+
+to use 90%
+
+{% highlight bash %}
+lvcreate -l 90%VG -n storage pve
+{% endhighlight %}
+
+If you plan to support lvm snapshots do not use 100% space as you need a second lvm volume.
+
+Logical volume "storage" created
+
+Create filesystem
+
+{% highlight bash %}
+mkfs.ext4 /dev/mapper/pve-storage
+{% endhighlight %}
+
+
+Writing superblocks and filesystem accounting information: done
+
+Display your setup
+
+Display Physical volume
+
+{% highlight bash %}
+pvdisplay -v -m
+{% endhighlight %}
+
+
+Display Volume group
+
+{% highlight bash %}
+vgdisplay
+{% endhighlight %}
+
+
+Display Logical volume
+
+LVM volumes follow the convention: /dev//.
+
+{% highlight bash %}
+lvdisplay /dev/pve/storage
+{% endhighlight %}
+
+
+Snapshots
+
+N.B. when LVM2 snapshot, the destination of the backup must be outside the LVM volume that contains the VM you are backing up (i.e. if your VM is in /pve/data that is mounted as /var/lib/vz, you can't save the backup in /var/lib/vz/dump).
