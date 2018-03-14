@@ -10,42 +10,42 @@ These are my notes on how to install `azure-cli` and do some basic setup.
 
 This will install azure-cli on MacOsX
 
-{% highlight bash %}
+````
 brew update && brew install azure-cli && brew install jq
-{% endhighlight %}
+````
 
-## Login to access acconts
+* Login to access acconts
 
-{% highlight bash %}
+````
 az login
-{% endhighlight %}
+````
 
-## List all accounts
+* List all accounts
 
-{% highlight bash %}
+````
 az account list
-{% endhighlight %}
+````
 
-## List all accounts and filter for attribute "name" which will show you subscription name and emails
+* List all accounts and filter for attribute "name" which will show you subscription name and emails
 
-{% highlight bash %}
+````
 az account show | grep "name"
-{% endhighlight %}
+````
 
-## Switch to subscription
+* Switch to subscription
 
-{% highlight bash %}
+````
 az account set -s "YOUR-CUSTOM-SUBSCRIPTION-NAME"
-{% endhighlight %}
+````
 
-## After you subscription is set, show the current subscription
+* After you subscription is set, show the current subscription
 
-{% highlight bash %}
+````
 az account show
-{% endhighlight %}
+````
 
-## Show detailed information on subscription
+* Show detailed information on subscription
 
-{% highlight bash %}
+````
 az account show -s "YOUR-CUSTOM-SUBSCRIPTION-NAME"
-{% endhighlight %}
+````
