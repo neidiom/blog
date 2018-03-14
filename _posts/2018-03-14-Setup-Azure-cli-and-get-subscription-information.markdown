@@ -16,7 +16,7 @@ brew update && brew install azure-cli && brew install jq
 
 {% highlight bash %}
 az login
-{% highlight bash %}
+{% endhighlight %}
 
 ## List all accounts
 
