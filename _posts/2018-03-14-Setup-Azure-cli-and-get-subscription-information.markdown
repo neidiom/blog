@@ -4,7 +4,7 @@ title: "Setup Azure-cli and get subscription information"
 date:   2018-03-14 12:34:07 +0000
 categories: azure azure-cli
 ---
-These are my notes on how to install `azure-cli` and do some basic setup.
+These are my notes on how to install Azure CLI 2.0, and do some basic setup.
 
 ## Install azure-cli
 
@@ -27,6 +27,12 @@ az login
 
 ````
 az account list
+````
+
+* or in `table` informat
+
+````
+az account list -o table
 ````
 
 * List all accounts and filter for attribute "name" which will show you subscription name and emails
@@ -64,7 +70,7 @@ az account show -s "YOUR-CUSTOM-SUBSCRIPTION-NAME"
 az account show -o json | jq ".tenantId"
 ````
 
-* Show ony subscription id
+* Show ony subscription `id`
 
 ````
 az account show -o json | jq ".id"
