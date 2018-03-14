@@ -41,7 +41,7 @@ az vm list
 
 ````
 az group list
-```
+````
 
 * as table
 
