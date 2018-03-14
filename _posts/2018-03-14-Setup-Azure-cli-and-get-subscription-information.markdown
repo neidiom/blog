@@ -4,6 +4,7 @@ title:  "Setup Azure-cli and get subscription information"
 date:   2018-03-14 12:55:09 +0000
 categories: azure azure-cli
 ---
+These are my notes on how to install `azure-cli` and do some basic setup.
 
 ## Install azure-cli
 
@@ -43,7 +44,7 @@ az account set -s "YOUR-CUSTOM-SUBSCRIPTION-NAME"
 az account show
 {% endhighlight %}
 
-## Show defailted information on subscription
+## Show detailed information on subscription
 
 {% highlight bash %}
 az account show -s "YOUR-CUSTOM-SUBSCRIPTION-NAME"
