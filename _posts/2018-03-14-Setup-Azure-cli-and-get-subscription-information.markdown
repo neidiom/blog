@@ -14,6 +14,9 @@ This will install azure-cli on MacOsX
 brew update && brew install azure-cli && brew install jq
 ````
 
+## Login and authenticate
+
+
 * Login to access acconts
 
 ````
@@ -31,6 +34,8 @@ az account list
 ````
 az account show | grep "name"
 ````
+
+## Setup default subscription
 
 * Switch to subscription
 
