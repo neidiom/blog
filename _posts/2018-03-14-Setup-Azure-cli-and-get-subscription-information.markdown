@@ -4,6 +4,7 @@ title:  "Setup Azure-cli and get subscription information"
 date:   2018-03-14 12:55:09 +0000
 categories: azure azure-cli
 ---
+
 ## Install azure-cli
 
 This will install azure-cli on MacOsX
