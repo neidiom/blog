@@ -25,7 +25,7 @@ tar -cpzf - web/ | pv -L 1m > ./web.tar.gz
 
 ## CSTREAM
 
-Alternate way is to use cstream utility.
+Alternative way is to use cstream utility.
 
 {% highlight bash %}
 apt-get install cstream
