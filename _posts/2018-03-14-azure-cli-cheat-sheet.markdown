@@ -5,16 +5,34 @@ date:   2018-03-14 11:25:07 +0100
 categories: azure azure-cli cheatsheet
 ---
 
-# List images
+## List images
 
 ````
 az vm image list --output table
 ````
 
-# Lis resources
+## Lis resources
 
 ````
 az resource list -o table
+````
+
+## List role assignment
+
+````
+az role assignment list -o table
+````
+
+## List access
+
+````
+az role assignment list --assignee "ASSIGNEE-PRINCIPAL-NAME"
+````
+
+# Grant permission
+
+````
+az role assignment create --role "Owner" --assignee <Service_Principal>
 ````
 
 # List resources in a group
@@ -61,7 +79,19 @@ az account list-locations -o table
 az group create -n HadzoGroup -l "westeurope"
 ````
 
-* Creating VM's
+#### Show information for a specific group
+
+````
+az group show -n HadzoGroup
+````
+
+* show only id of the group
+
+````
+az group show -n HadzoGroup --query id -o tsv
+````
+
+## Creating VM's
 
 ````
 az vm create \
@@ -89,6 +119,7 @@ az vm create \
 ````
 az vm delete -n MyVM -g MyResourceGroup
 ````
+
 ````
 az group delete -n MyGroup
 ````

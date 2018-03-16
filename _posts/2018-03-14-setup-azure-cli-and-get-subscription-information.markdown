@@ -16,7 +16,6 @@ brew update && brew install azure-cli && brew install jq
 
 ## Login and authenticate
 
-
 * Login to access acconts
 
 ````
