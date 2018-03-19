@@ -52,6 +52,15 @@ az role definition list --output json | jq '.[] | {"roleName":.properties.roleNa
 az role definition list --name "Contributor"
 ````
 
+
+# Locks
+
+````
+az lock create --name ReadOnlyLock \
+--resource-group HadzosResourceGroup \
+--lock-type CanNotDelete
+````
+
 # Network
 
 ## List VNets
