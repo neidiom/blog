@@ -29,6 +29,32 @@ az role assignment list -o table
 az role assignment list --assignee "ASSIGNEE-PRINCIPAL-NAME"
 ````
 
+# Network
+
+## List VNets
+
+````
+az network vnet list -o table
+````
+
+## List Public IPs
+
+````
+az network public-ip list -o table
+````
+
+## List Network Security Group
+
+````
+az network nsg list -o table
+````
+
+## List NIC
+
+````
+az network nic list -o table
+````
+
 # Grant permission
 
 ````
