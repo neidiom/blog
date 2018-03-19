@@ -38,7 +38,7 @@ az role assignment list --assignee "ASSIGNEE-PRINCIPAL-NAME"
 
 ````
 az role definition list
-```
+````
 
 ````
 az role definition list -o table
