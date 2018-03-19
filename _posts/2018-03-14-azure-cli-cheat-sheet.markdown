@@ -23,10 +23,33 @@ az resource list -o table
 az role assignment list -o table
 ````
 
+### List role assignment and filter for `name` or `principalName`
+
+````
+az role assignment list | grep 'name\|principalName'
+````
 ## List access
 
 ````
 az role assignment list --assignee "ASSIGNEE-PRINCIPAL-NAME"
+````
+
+# Roles
+
+````
+az role definition list
+```
+
+````
+az role definition list -o table
+````
+
+````
+az role definition list --output json | jq '.[] | {"roleName":.properties.roleName, "description":.properties.description}'
+````
+
+````
+az role definition list --name "Contributor"
 ````
 
 # Network
