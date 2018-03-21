@@ -11,7 +11,7 @@ categories: azure azure-cli
 
 
 
-## Set environment variables
+## 1.0 Set environment variables
 
 * Set prefix variable
 
@@ -27,7 +27,7 @@ ADMIN_USERNAME=hadzo
 * Set Resource Group Name
 
 ````
-RES_GROUP="HadzosResourceGroup
+RES_GROUP=HadzosResourceGroup
 ````
 
 * Set location
@@ -36,7 +36,7 @@ RES_GROUP="HadzosResourceGroup
 LOCATION=westeurope
 ````
 
-### Test if shell variables were set
+### 1.1 Test if shell variables were set
 
 * Test if **AZ_PREFIX** variable was set
 
@@ -64,7 +64,7 @@ echo $LOCATION
 ````
 
 
-## Create resource group
+# 2.0 Create resource group
 
 * An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
@@ -76,7 +76,42 @@ az group create \
 --location "${LOCATION}"
 ````
 
-## Create a virtual network and subnet
+### 2.1 Test if group was created
+
+We will get list of groups in table format and filter by Resource Group name
+
+````
+az group list -o table | grep "${RES_GROUP}"
+````
+
+or in `jsonc` format
+
+````
+az group list -o jsonc | grep ${RES_GROUP}
+````
+
+
+### 2.2 Get group list and query by location
+
+````
+az group list --query "[?location=='"${LOCATION}"']"
+````
+
+or manually provide location name
+
+````
+az group list --query "[?location=='westeurope']"
+````
+
+### 2.3 Get help on `group` options
+
+````
+az group -h
+````
+
+# Networking
+
+## 3.0 Create a virtual network and subnet
 
 ````
 az network vnet create \
@@ -86,7 +121,7 @@ az network vnet create \
     --subnet-name "${AZ_PREFIX}"Subnet \
     --subnet-prefix 192.168.1.0/24
 ````
-# Create a public IP address
+## 4.0 Create a public IP address
 
 This public IP address enables you to connect to your VMs from the Internet. Because the default address is dynamic, create a named DNS entry with the --domain-name-label parameter. The following example creates a public IP named "${AZ_PREFIX}"PublicIP with the DNS name of "${AZ_PREFIX}"publicdns. Because the DNS name must be unique, provide your own unique DNS name:
 
@@ -98,14 +133,14 @@ az network public-ip create \
     --dns-name "${AZ_PREFIX}"publicdns
 ````
 
-## List newly created public IP Address
+### 4.1 List newly created public IP Address
 
 ````
 az network public-ip list \
 --resource-group "${RES_GROUP}" | grep ipAddress
 ````
 
-## List newly created FQDN
+### 4.2 List newly created FQDN
 
 ````
 az network public-ip list \
@@ -113,7 +148,7 @@ az network public-ip list \
 ````
 
 
-# Create a network security group
+## 5.0 Create a network security group
 
 To control the flow of traffic in and out of your VMs, you apply a network security group to a virtual NIC or subnet.
 
@@ -160,7 +195,7 @@ az network nsg show --resource-group "${RES_GROUP}" \
 ````
 
 
-## Create a virtual NIC
+## 6.0 Create a virtual NIC
 
 Virtual network interface cards (NICs) are programmatically available because you can apply rules to their use. Depending on the VM size, you can attach multiple virtual NICs to a VM. In the following az network nic create command, you create a NIC named "${AZ_PREFIX}"Nic and associate it with your network security group. The public IP address "${AZ_PREFIX}"PublicIP is also associated with the virtual NIC.
 
@@ -174,7 +209,7 @@ az network nic create \
     --network-security-group "${AZ_PREFIX}"NetworkSecurityGroup
 ````
 
-## Create an availability set
+## 7.0 Create an availability set
 
 
 Availability sets help spread your VMs across fault domains and update domains. Even though you only create one VM right now, it's best practice to use availability sets to make it easier to expand in the future.
@@ -186,7 +221,7 @@ az vm availability-set create \
     --name "${AZ_PREFIX}"AvailabilitySet
 ````
 
-## Create a VM
+## 8.0 Create a VM
 
 You've created the network resources to support Internet-accessible VMs. Now create a VM and secure it with an SSH key. In this example, let's create an Ubuntu VM based on the most recent LTS.
 
@@ -209,7 +244,7 @@ az vm create \
 ssh hadzo@mypublicdns.eastus.cloudapp.azure.com
 ````
 
-## Export as a template
+# 9.0 Export as a template
 
 What if you now want to create an additional development environment with the same parameters, or a production environment that matches it?
 
@@ -226,6 +261,6 @@ az group deployment create \
     --template-file "${RES_GROUP}".json
 ````
 
-#### Reference
+# 10.0 Reference
 
 * [Link to MS Docs article](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/create-cli-complete)
