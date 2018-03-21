@@ -270,7 +270,8 @@ az group deployment create \
     --resource-group "${AZ_PREFIX}"NewResourceGroup \
     --template-file "${RES_GROUP}".json
 ````
+# Links
 
-# 10.0 Reference
+## 10.0 Reference
 
 * [Link to MS Docs article](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/create-cli-complete)
