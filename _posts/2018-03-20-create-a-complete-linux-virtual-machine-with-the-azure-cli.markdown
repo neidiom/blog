@@ -121,6 +121,13 @@ az network vnet create \
     --subnet-name "${AZ_PREFIX}"Subnet \
     --subnet-prefix 192.168.1.0/24
 ````
+
+## 3.1 Get help on **vnet**
+
+````
+az network vnet -h
+````
+
 ## 4.0 Create a public IP address
 
 This public IP address enables you to connect to your VMs from the Internet. Because the default address is dynamic, create a named DNS entry with the --domain-name-label parameter. The following example creates a public IP named "${AZ_PREFIX}"PublicIP with the DNS name of "${AZ_PREFIX}"publicdns. Because the DNS name must be unique, provide your own unique DNS name:
@@ -147,10 +154,18 @@ az network public-ip list \
 --resource-group "${RES_GROUP}" | grep fqdn
 ````
 
+## 4.3 Get help on **public-ip**
+
+````
+az network public-ip -h
+````
+
 
 ## 5.0 Create a network security group
 
 To control the flow of traffic in and out of your VMs, you apply a network security group to a virtual NIC or subnet.
+
+### 5.1 Create **nsg**
 
 ````
 az network nsg create \
@@ -159,6 +174,8 @@ az network nsg create \
 ````
 
 You define rules that allow or deny specific traffic. To allow inbound connections on port 22 (to enable SSH access), create an inbound rule
+
+### 5.2 Create inbound **nsg rule** for port `22`
 
 
 ````
@@ -174,6 +191,8 @@ az network nsg rule create \
 
 To allow inbound connections on port 80 (for web traffic), add another network security group rule. The following example creates a rule named "${AZ_PREFIX}"NetworkSecurityGroupRuleHTTP:
 
+### 5.3 Create inbound **nsg rule** for port `80`
+
 
 ````
 az network nsg rule create \
@@ -186,12 +205,21 @@ az network nsg rule create \
     --access allow
 ````
 
+### 5.4 Examine **nsg**
+
+
 Examine the network security group and rules with az network nsg show:
 
 
 ````
 az network nsg show --resource-group "${RES_GROUP}" \
 --name "${AZ_PREFIX}"NetworkSecurityGroup
+````
+
+### 5.5 Get help on **nsg**
+
+````
+az network nsg -h
 ````
 
 
