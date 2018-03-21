@@ -237,6 +237,12 @@ az network nic create \
     --network-security-group "${AZ_PREFIX}"NetworkSecurityGroup
 ````
 
+### 6.1 Get help on **nic**
+
+````
+az network nic -h
+````
+
 # AvailabilitySet
 
 ## 7.0 Create an availability set
@@ -249,6 +255,12 @@ Availability sets help spread your VMs across fault domains and update domains. 
 az vm availability-set create \
     --resource-group "${RES_GROUP}" \
     --name "${AZ_PREFIX}"AvailabilitySet
+````
+
+### 7.1 Get help on **availability-set**
+
+````
+az vm availability-set -h
 ````
 
 # VM
@@ -279,6 +291,13 @@ Be sure to set the correct **FQDN**
 ````
 ssh "${ADMIN_USERNAME}"@mypublicdns.eastus.cloudapp.azure.com
 ````
+
+### 8.2 Get help on **vm create**
+
+````
+az vm create -h
+````
+
 
 # Extra
 
