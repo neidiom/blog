@@ -4,6 +4,10 @@ title: "Setup Azure-cli and get subscription information"
 date:   2018-03-14 10:34:07 +0100
 categories: azure azure-cli
 ---
+
+* TOC
+{:toc}
+
 These are my notes on how to install Azure CLI 2.0, and do some basic setup.
 
 ## Install azure-cli

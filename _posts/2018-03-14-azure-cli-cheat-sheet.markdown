@@ -5,6 +5,9 @@ date:   2018-03-14 11:25:07 +0100
 categories: azure azure-cli cheatsheet
 ---
 
+* TOC
+{:toc}
+
 ## List images
 
 ````

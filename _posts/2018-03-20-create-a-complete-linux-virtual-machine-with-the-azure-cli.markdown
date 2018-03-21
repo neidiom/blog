@@ -5,7 +5,6 @@ date:   2018-03-20 10:34:07 +0100
 categories: azure azure-cli
 ---
 
-
 * TOC
 {:toc}
 
