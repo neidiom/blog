@@ -210,6 +210,8 @@ az network nic create \
     --network-security-group "${AZ_PREFIX}"NetworkSecurityGroup
 ````
 
+# AvailabilitySet
+
 ## 7.0 Create an availability set
 
 
@@ -221,6 +223,8 @@ az vm availability-set create \
     --resource-group "${RES_GROUP}" \
     --name "${AZ_PREFIX}"AvailabilitySet
 ````
+
+# VM
 
 ## 8.0 Create a VM
 
@@ -241,8 +245,12 @@ az vm create \
     --ssh-key-value ~/.ssh/id_rsa.pub
 ````
 
+### 8.1 Connect to VM
+
+Be sure to set the correct **FQDN**
+
 ````
-ssh hadzo@mypublicdns.eastus.cloudapp.azure.com
+ssh "${ADMIN_USERNAME}"@mypublicdns.eastus.cloudapp.azure.com
 ````
 
 # Extra
