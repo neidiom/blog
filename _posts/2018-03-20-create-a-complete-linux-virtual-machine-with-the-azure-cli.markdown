@@ -9,7 +9,7 @@ categories: azure azure-cli
 * Set prefix variable
 
 ````
-AZPREFIX=Hadzos
+AZ_PREFIX=Hadzos
 ````
 * Set username
 
@@ -20,20 +20,37 @@ ADMIN_USERNAME=hadzo
 * Set Resource Group Name
 
 ````
-RESGRP="HadzosResourceGroup
+RES_GROUP="HadzosResourceGroup
 ````
 
-* Test if RESGRP variable was set
-
-```
-echo $RESGRP
-````
 * Set location
 
 ````
 LOCATION=westeurope
 ````
-* Set if LOCATION variable was set
+
+### Test if shell variables were set
+
+* Test if AZ_PREFIX variable was set
+
+````
+echo $AZ_PREFIX
+````
+
+* Test if ADMIN_USERNAME variable was set
+
+````
+echo $ADMIN_USERNAME
+````
+
+
+* Test if RES_GROUP variable was set
+
+```
+echo $RES_GROUP
+````
+
+* Test if LOCATION variable was set
 
 ````
 echo $LOCATION
@@ -48,7 +65,7 @@ echo $LOCATION
 
 ````
 az group create \
---name "${RESGRP}" \
+--name "${RES_GROUP}" \
 --location "${LOCATION}"
 ````
 
@@ -56,36 +73,36 @@ az group create \
 
 ````
 az network vnet create \
-    --resource-group "${RESGRP}" \
-    --name "${AZPREFIX}"Vnet \
+    --resource-group "${RES_GROUP}" \
+    --name "${AZ_PREFIX}"Vnet \
     --address-prefix 192.168.0.0/16 \
-    --subnet-name "${AZPREFIX}"Subnet \
+    --subnet-name "${AZ_PREFIX}"Subnet \
     --subnet-prefix 192.168.1.0/24
 ````
 # Create a public IP address
 
-This public IP address enables you to connect to your VMs from the Internet. Because the default address is dynamic, create a named DNS entry with the --domain-name-label parameter. The following example creates a public IP named "${AZPREFIX}"PublicIP with the DNS name of "${AZPREFIX}"publicdns. Because the DNS name must be unique, provide your own unique DNS name:
+This public IP address enables you to connect to your VMs from the Internet. Because the default address is dynamic, create a named DNS entry with the --domain-name-label parameter. The following example creates a public IP named "${AZ_PREFIX}"PublicIP with the DNS name of "${AZ_PREFIX}"publicdns. Because the DNS name must be unique, provide your own unique DNS name:
 
 
 ````
 az network public-ip create \
-    --resource-group "${RESGRP}" \
-    --name "${AZPREFIX}"PublicIP \
-    --dns-name "${AZPREFIX}"publicdns
+    --resource-group "${RES_GROUP}" \
+    --name "${AZ_PREFIX}"PublicIP \
+    --dns-name "${AZ_PREFIX}"publicdns
 ````
 
 ## List newly created public IP Address
 
 ````
 az network public-ip list \
---resource-group "${RESGRP}" | grep ipAddress
+--resource-group "${RES_GROUP}" | grep ipAddress
 ````
 
 ## List newly created FQDN
 
 ````
 az network public-ip list \
---resource-group "${RESGRP}" | grep fqdn
+--resource-group "${RES_GROUP}" | grep fqdn
 ````
 
 
@@ -95,8 +112,8 @@ To control the flow of traffic in and out of your VMs, you apply a network secur
 
 ````
 az network nsg create \
-    --resource-group "${RESGRP}" \
-    --name "${AZPREFIX}"NetworkSecurityGroup
+    --resource-group "${RES_GROUP}" \
+    --name "${AZ_PREFIX}"NetworkSecurityGroup
 ````
 
 You define rules that allow or deny specific traffic. To allow inbound connections on port 22 (to enable SSH access), create an inbound rule
@@ -104,23 +121,23 @@ You define rules that allow or deny specific traffic. To allow inbound connectio
 
 ````
 az network nsg rule create \
-    --resource-group "${RESGRP}" \
-    --nsg-name "${AZPREFIX}"NetworkSecurityGroup \
-    --name "${AZPREFIX}"NetworkSecurityGroupRuleSSH \
+    --resource-group "${RES_GROUP}" \
+    --nsg-name "${AZ_PREFIX}"NetworkSecurityGroup \
+    --name "${AZ_PREFIX}"NetworkSecurityGroupRuleSSH \
     --protocol tcp \
     --priority 1000 \
     --destination-port-range 22 \
     --access allow
 ````
 
-To allow inbound connections on port 80 (for web traffic), add another network security group rule. The following example creates a rule named "${AZPREFIX}"NetworkSecurityGroupRuleHTTP:
+To allow inbound connections on port 80 (for web traffic), add another network security group rule. The following example creates a rule named "${AZ_PREFIX}"NetworkSecurityGroupRuleHTTP:
 
 
 ````
 az network nsg rule create \
-    --resource-group "${RESGRP}" \
-    --nsg-name "${AZPREFIX}"NetworkSecurityGroup \
-    --name "${AZPREFIX}"NetworkSecurityGroupRuleWeb \
+    --resource-group "${RES_GROUP}" \
+    --nsg-name "${AZ_PREFIX}"NetworkSecurityGroup \
+    --name "${AZ_PREFIX}"NetworkSecurityGroupRuleWeb \
     --protocol tcp \
     --priority 1001 \
     --destination-port-range 80 \
@@ -131,23 +148,23 @@ Examine the network security group and rules with az network nsg show:
 
 
 ````
-az network nsg show --resource-group "${RESGRP}" \
---name "${AZPREFIX}"NetworkSecurityGroup
+az network nsg show --resource-group "${RES_GROUP}" \
+--name "${AZ_PREFIX}"NetworkSecurityGroup
 ````
 
 
 ## Create a virtual NIC
 
-Virtual network interface cards (NICs) are programmatically available because you can apply rules to their use. Depending on the VM size, you can attach multiple virtual NICs to a VM. In the following az network nic create command, you create a NIC named "${AZPREFIX}"Nic and associate it with your network security group. The public IP address "${AZPREFIX}"PublicIP is also associated with the virtual NIC.
+Virtual network interface cards (NICs) are programmatically available because you can apply rules to their use. Depending on the VM size, you can attach multiple virtual NICs to a VM. In the following az network nic create command, you create a NIC named "${AZ_PREFIX}"Nic and associate it with your network security group. The public IP address "${AZ_PREFIX}"PublicIP is also associated with the virtual NIC.
 
 ````
 az network nic create \
-    --resource-group "${RESGRP}" \
-    --name "${AZPREFIX}"Nic \
-    --vnet-name "${AZPREFIX}"Vnet \
-    --subnet "${AZPREFIX}"Subnet \
-    --public-ip-address "${AZPREFIX}"PublicIP \
-    --network-security-group "${AZPREFIX}"NetworkSecurityGroup
+    --resource-group "${RES_GROUP}" \
+    --name "${AZ_PREFIX}"Nic \
+    --vnet-name "${AZ_PREFIX}"Vnet \
+    --subnet "${AZ_PREFIX}"Subnet \
+    --public-ip-address "${AZ_PREFIX}"PublicIP \
+    --network-security-group "${AZ_PREFIX}"NetworkSecurityGroup
 ````
 
 ## Create an availability set
@@ -158,8 +175,8 @@ Availability sets help spread your VMs across fault domains and update domains. 
 
 ````
 az vm availability-set create \
-    --resource-group "${RESGRP}" \
-    --name "${AZPREFIX}"AvailabilitySet
+    --resource-group "${RES_GROUP}" \
+    --name "${AZ_PREFIX}"AvailabilitySet
 ````
 
 ## Create a VM
@@ -171,11 +188,11 @@ Create the VM by bringing all the resources and information together with the az
 
 ````
 az vm create \
-    --resource-group "${RESGRP}" \
-    --name "${AZPREFIX}"VM \
+    --resource-group "${RES_GROUP}" \
+    --name "${AZ_PREFIX}"VM \
     --location "${LOCATION}" \
-    --availability-set "${AZPREFIX}"AvailabilitySet \
-    --nics "${AZPREFIX}"Nic \
+    --availability-set "${AZ_PREFIX}"AvailabilitySet \
+    --nics "${AZ_PREFIX}"Nic \
     --image UbuntuLTS \
     --admin-username "${ADMIN_USERNAME}" \
     --ssh-key-value ~/.ssh/id_rsa.pub
@@ -191,15 +208,15 @@ What if you now want to create an additional development environment with the sa
 
 
 ````
-az group export --name "${RESGRP}" > "${RESGRP}".json
+az group export --name "${RES_GROUP}" > "${RES_GROUP}".json
 ````
 
 To create an environment from your template
 
 ````
 az group deployment create \
-    --resource-group "${AZPREFIX}"NewResourceGroup \
-    --template-file "${RESGRP}".json
+    --resource-group "${AZ_PREFIX}"NewResourceGroup \
+    --template-file "${RES_GROUP}".json
 ````
 
 ###### Reference
