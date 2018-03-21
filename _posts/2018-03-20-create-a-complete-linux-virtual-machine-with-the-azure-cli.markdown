@@ -4,6 +4,13 @@ title: "Create a complete Linux virtual machine with the Azure CLI"
 date:   2018-03-20 10:34:07 +0100
 categories: azure azure-cli
 ---
+
+
+* TOC
+{:toc}
+
+
+
 ## Set environment variables
 
 * Set prefix variable
@@ -31,26 +38,26 @@ LOCATION=westeurope
 
 ### Test if shell variables were set
 
-* Test if AZ_PREFIX variable was set
+* Test if **AZ_PREFIX** variable was set
 
 ````
 echo $AZ_PREFIX
 ````
 
-* Test if ADMIN_USERNAME variable was set
+* Test if **ADMIN_USERNAME** variable was set
 
 ````
 echo $ADMIN_USERNAME
 ````
 
 
-* Test if RES_GROUP variable was set
+* Test if **RES_GROUP** variable was set
 
 ```
 echo $RES_GROUP
 ````
 
-* Test if LOCATION variable was set
+* Test if **LOCATION** variable was set
 
 ````
 echo $LOCATION
@@ -219,6 +226,6 @@ az group deployment create \
     --template-file "${RES_GROUP}".json
 ````
 
-###### Reference
+#### Reference
 
-* https://docs.microsoft.com/en-us/azure/virtual-machines/linux/create-cli-complete
+* [Link to MS Docs article](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/create-cli-complete)
