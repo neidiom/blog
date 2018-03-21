@@ -9,7 +9,7 @@ categories: azure azure-cli
 * TOC
 {:toc}
 
-
+# SETUP Shell Environment
 
 ## 1.0 Set environment variables
 
@@ -63,8 +63,9 @@ echo $RES_GROUP
 echo $LOCATION
 ````
 
+# Resource Group and Location
 
-# 2.0 Create resource group
+## 2.0 Create resource group
 
 * An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
@@ -244,7 +245,9 @@ az vm create \
 ssh hadzo@mypublicdns.eastus.cloudapp.azure.com
 ````
 
-# 9.0 Export as a template
+# Extra
+
+## 9.0 Export as a template
 
 What if you now want to create an additional development environment with the same parameters, or a production environment that matches it?
 
