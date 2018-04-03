@@ -37,6 +37,12 @@ az role assignment list | grep 'name\|principalName'
 az role assignment list --assignee "ASSIGNEE-PRINCIPAL-NAME"
 ````
 
+## List limits in a region
+
+````
+az vm list-usage --location westeurope -o table
+````
+
 # Roles
 
 ````
