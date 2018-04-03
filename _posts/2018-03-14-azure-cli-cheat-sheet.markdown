@@ -36,6 +36,11 @@ az role assignment list | grep 'name\|principalName'
 ````
 az role assignment list --assignee "ASSIGNEE-PRINCIPAL-NAME"
 ````
+## Generate an ARM template from an existing resource group
+
+````
+az group export -n kakoje_acs_rg1
+````
 
 ## List limits in a region
 
