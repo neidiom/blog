@@ -16,6 +16,8 @@ Log in to your account
 az login
 ````
 
+# Creating
+
 ## Create a resource group
 
 ```
@@ -79,6 +81,7 @@ az acs delete -g kakoje_acs_rg1 -n acs-cluster
 ````
 az group delete -n kakoje_acs_rg1
 ````
+# Links
 
 ## Resources
 
