@@ -37,6 +37,7 @@ or use shorter syntax
 az acs create -n kakoje-acs-cluster -g kakoje_acs_rg1 -d applink789
 ````
 
+# Managing
 
 ## Manage ACS clusters
 
