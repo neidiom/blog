@@ -67,12 +67,18 @@ az acs show -g kakoje_acs_rg1 -n kakoje-acs-cluster --output table
 az acs scale -g kakoje_acs_rg1 -n acs-cluster --new-agent-count 4
 ````
 
+# Deleting
+
 ## Delete a container service cluster
 
 ````
 az acs delete -g kakoje_acs_rg1 -n acs-cluster
 ````
+## Delete Resource Group
 
+````
+az group delete -n kakoje_acs_rg1
+````
 
 ## Resources
 
