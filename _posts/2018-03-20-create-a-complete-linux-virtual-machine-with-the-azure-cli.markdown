@@ -15,7 +15,7 @@ categories: azure azure-cli
 * Set prefix variable
 
 ````
-AZ_PREFIX=Hadzos
+AZ_PREFIX=hadzos
 ````
 * Set username
 
