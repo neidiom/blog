@@ -195,3 +195,7 @@ az vm delete -n MyVM -g MyResourceGroup
 ````
 az group delete -n MyGroup
 ````
+
+````
+az group delete --name MyGroup --yes --no-wait
+````
