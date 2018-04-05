@@ -59,15 +59,38 @@ az acs list -g kakoje_acs_rg1 --output table
 Display details of a container service cluster
 
 ````
-az acs show -g kakoje_acs_rg1 -n kakoje-acs-cluster --output table
+az acs show \
+-g kakoje_acs_rg1 \
+-n kakoje-acs-cluster \
+--output table
+````
+## Display details of a container service cluster
+
+````
+az acs show \
+-g kakoje_acs_rg1 \
+-n kakoje-acs-cluster \
+--output jsonc
 ````
 
+## Get username and **FQDN**
+
+Now we get the username and **FQDN** in order to connect
+
+````
+az acs show \
+-g kakoje_acs_rg1 \
+-n kakoje-acs-cluster \
+--output jsonc | grep 'user\|fqdn'
+````
 
 ## Scale the cluster
 
-
 ````
-az acs scale -g kakoje_acs_rg1 -n acs-cluster --new-agent-count 4
+az acs scale \
+-g kakoje_acs_rg1 \
+-n acs-cluster \
+--new-agent-count 4
 ````
 
 # Deleting
