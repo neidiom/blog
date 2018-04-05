@@ -33,23 +33,30 @@ az group deployment create \
     --name ARMTestDeployment \
     --resource-group $resourceGroup \
     --template-file  azure-kafka-spark-adls.json\
-    --parameters 'clusterPassword=myvhds96' \
-                 'aadTenantId=My5q1P@s5w0rd!' \
-                 'servicePrincipalObjectId=mheath' \
-                 'servicePrincipalApplicationId=Adm1nP@s5w0rd!' \
-                 'servicePrincipalCertificateContents=mypublicip72'
+    --parameters 'clusterPassword=00000000000000' \
+                 'aadTenantId=00000000000000' \
+                 'servicePrincipalObjectId=00000000000000' \
+                 'servicePrincipalApplicationId=00000000000000' \
+                 'servicePrincipalCertificateContents=mypublicip00000'
 ````
 
 
-or using variables
+### Using Shell Variables
 
 ````
-az group deployment create -g $CLUSTER_NAME --template-file azuredeploy.json --debug --parameters\
+CLUSTER_PASSWORD=""
+````
+
+````
+az group deployment create -g $resourceGroup \
+    --template-file azure-kafka-spark-adls.json \
+    --debug \
+    --parameters \
     clusterPassword="$CLUSTER_PASSWORD" \
     aadTenantId=$AAD_TENANT \
     servicePrincipalObjectId=$SP_OBJECTID \
     servicePrincipalApplicationId=$SP_APPID \
-servicePrincipalCertificateContents="$CERT_BASE64"
+    servicePrincipalCertificateContents="$CERT_BASE64"
 ````
 
 # Links
