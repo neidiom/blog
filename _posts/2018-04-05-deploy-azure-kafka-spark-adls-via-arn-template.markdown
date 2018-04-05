@@ -43,6 +43,8 @@ az group deployment create \
 
 ### Using Shell Variables
 
+password must be 6-72 characters long and must contain at least one digit, one upper case letter and one lower case letter
+
 ````
 CLUSTER_PASSWORD=""
 ````
