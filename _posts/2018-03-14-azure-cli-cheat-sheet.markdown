@@ -17,18 +17,24 @@ Represent a user, group, or service principal. supported format: object id, user
 Assignee's graph object id, such as the 'principal id' from a managed service identity. Use this instead of '--assignee' to bypass graph permission issues.
 
 ````
-az role assignment create --assignee-object-id 1d500143-702b-4ed8-a0cc-c46a1f29de1b --role Contributor
+az role assignment create \
+--assignee-object-id 1d500143-702b-4ed8-a0cc-c46a1f29de1b \
+--role Contributor
 ````
 
 # List Roles for an Assignee
 
 ````
-az role assignment list --assignee 1d500143-702b-4ed8-a0cc-c46a1f29de1b -o table
+az role assignment list \
+--assignee 1d500143-702b-4ed8-a0cc-c46a1f29de1b \
+-o table
 ````
 # Delete a Role for an Assignee
 
 ````
-az role assignment delete --assignee 1d500143-702b-4ed8-a0cc-c46a1f29de1b --role Reader
+az role assignment delete \
+--assignee 1d500143-702b-4ed8-a0cc-c46a1f29de1b \
+--role Reader
 ````
 
 # Listing
