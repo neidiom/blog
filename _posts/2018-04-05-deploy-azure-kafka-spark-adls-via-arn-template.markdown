@@ -9,10 +9,18 @@ categories: azure azure-cli
 {:toc}
 
 
+Set RG name
+
 ````
 ResourceGroup="arm-deploy-test"
+````
+Set location
+
+````
 location="westeurope"
 ````
+
+Create RG
 
 ````
 az group create \
