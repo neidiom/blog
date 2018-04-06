@@ -10,18 +10,25 @@ categories: azure azure-cli
 
 
 ````
-resourceGroup="arm-deploy-test"
+ResourceGroup="arm-deploy-test"
 location="westeurope"
 ````
 
 ````
-az group create -l $location -n $resourceGroup
+az group create -l $location -n $ResourceGroup
+````
+
+# Create Service Principal with certificate
+Certificate is not created if Service Principal already exists
+
+````
+PEM_FILE=$(az ad sp create-for-rbac --name $ResourceGroup --create-cert --query "fileWithCertAndPrivateKey" -o tsv)
 ````
 
 # Extract Service Principal Metadata
 ````
-SP_APPID=$(az ad sp list --display-name $resourceGroup --query "[0].appId" -o tsv)
-SP_OBJECTID=$(az ad sp list --display-name $resourceGroup --query "[0].objectId" -o tsv)
+SP_APPID=$(az ad sp list --display-name $ResourceGroup --query "[0].appId" -o tsv)
+SP_OBJECTID=$(az ad sp list --display-name $ResourceGroup --query "[0].objectId" -o tsv)
 AAD_TENANT=$(az account show --query "tenantId" -o tsv)
 ````
 
@@ -31,8 +38,8 @@ AAD_TENANT=$(az account show --query "tenantId" -o tsv)
 az group deployment create \
     --debug \
     --name ARMTestDeployment \
-    --resource-group $resourceGroup \
-    --template-file  azure-kafka-spark-adls.json\
+    --resource-group $ResourceGroup \
+    --template-file  azure-kafka-spark-adls.json \
     --parameters 'clusterPassword=00000000000000' \
                  'aadTenantId=00000000000000' \
                  'servicePrincipalObjectId=00000000000000' \
@@ -50,7 +57,8 @@ CLUSTER_PASSWORD=""
 ````
 
 ````
-az group deployment create -g $resourceGroup \
+az group deployment create \
+    --resource-group $ResourceGroup \
     --template-file azure-kafka-spark-adls.json \
     --debug \
     --parameters \
