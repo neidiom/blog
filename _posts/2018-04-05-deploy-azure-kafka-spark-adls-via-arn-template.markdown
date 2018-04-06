@@ -15,14 +15,20 @@ location="westeurope"
 ````
 
 ````
-az group create -l $location -n $ResourceGroup
+az group create \
+-l $location \
+-n $ResourceGroup
 ````
 
 # Create Service Principal with certificate
 Certificate is not created if Service Principal already exists
 
 ````
-PEM_FILE=$(az ad sp create-for-rbac --name $ResourceGroup --create-cert --query "fileWithCertAndPrivateKey" -o tsv)
+PEM_FILE=$(az ad sp create-for-rbac \
+  --name $ResourceGroup \
+  --create-cert \
+  --query "fileWithCertAndPrivateKey" \
+  -o tsv)
 ````
 
 # Export pem to pfx with password
