@@ -45,23 +45,7 @@ SP_OBJECTID=$(az ad sp list --display-name $ResourceGroup --query "[0].objectId"
 AAD_TENANT=$(az account show --query "tenantId" -o tsv)
 ````
 
-
-# deploy, specifying all template parameters directly
-````
-az group deployment create \
-    --debug \
-    --name ARMTestDeployment \
-    --resource-group $ResourceGroup \
-    --template-file  azure-kafka-spark-adls.json \
-    --parameters 'clusterPassword=00000000000000' \
-                 'aadTenantId=00000000000000' \
-                 'servicePrincipalObjectId=00000000000000' \
-                 'servicePrincipalApplicationId=00000000000000' \
-                 'servicePrincipalCertificateContents=mypublicip00000'
-````
-
-
-### Using Shell Variables
+### Deply Using Shell Variables
 
 password must be 6-72 characters long and must contain at least one digit, one upper case letter and one lower case letter
 
