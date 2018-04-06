@@ -25,6 +25,19 @@ Certificate is not created if Service Principal already exists
 PEM_FILE=$(az ad sp create-for-rbac --name $ResourceGroup --create-cert --query "fileWithCertAndPrivateKey" -o tsv)
 ````
 
+# Export pem to pfx with password
+
+````
+openssl pkcs12 -export <$PEM_FILE -out $ResourceGroup.pfx -password pass:$CLUSTER_PASSWORD
+````
+
+# Set CERT_BASE64
+
+````
+CERT_BASE64=$(base64 $ResourceGroup.pfx)
+````
+
+
 # Extract Service Principal Metadata
 ````
 SP_APPID=$(az ad sp list --display-name $ResourceGroup --query "[0].appId" -o tsv)
