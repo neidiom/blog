@@ -39,6 +39,16 @@ az role assignment delete \
 
 # Listing
 
+## Get info about VM from a Resource Group
+
+````
+az vm list --resource-group $ResourceGroup
+````
+
+````
+ az vm list --resource-group $ResourceGroup | grep 'id'
+````
+
 ## List images
 
 ````
