@@ -8,6 +8,7 @@ categories: azure azure-cli
 * TOC
 {:toc}
 
+# Create ResourceGroup
 
 Set RG name
 
@@ -29,6 +30,7 @@ az group create \
 ````
 
 # Create Service Principal with certificate
+
 Certificate is not created if Service Principal already exists
 
 ````
@@ -51,7 +53,6 @@ openssl pkcs12 -export <$PEM_FILE -out $ResourceGroup.pfx -password pass:$CLUSTE
 CERT_BASE64=$(base64 $ResourceGroup.pfx)
 ````
 
-
 # Extract Service Principal Metadata
 ````
 SP_APPID=$(az ad sp list --display-name $ResourceGroup --query "[0].appId" -o tsv)
@@ -59,7 +60,7 @@ SP_OBJECTID=$(az ad sp list --display-name $ResourceGroup --query "[0].objectId"
 AAD_TENANT=$(az account show --query "tenantId" -o tsv)
 ````
 
-### Deply Using Shell Variables
+### Deploy Using Shell Variables
 
 password must be 6-72 characters long and must contain at least one digit, one upper case letter and one lower case letter
 
