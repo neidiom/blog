@@ -8,13 +8,38 @@ categories: azure azure-cli cheatsheet
 * TOC
 {:toc}
 
+# Role assignment
+
+--assignee
+Represent a user, group, or service principal. supported format: object id, user sign-in name, or service principal name.
+
+--assignee-object-id:
+Assignee's graph object id, such as the 'principal id' from a managed service identity. Use this instead of '--assignee' to bypass graph permission issues.
+
+````
+az role assignment create --assignee-object-id 1d500143-702b-4ed8-a0cc-c46a1f29de1b --role Contributor
+````
+
+# List Roles for an Assignee
+
+````
+az role assignment list --assignee 1d500143-702b-4ed8-a0cc-c46a1f29de1b -o table
+````
+# Delete a Role for an Assignee
+
+````
+az role assignment delete --assignee 1d500143-702b-4ed8-a0cc-c46a1f29de1b --role Reader
+````
+
+# Listing
+
 ## List images
 
 ````
 az vm image list --output table
 ````
 
-## Lis resources
+## List resources
 
 ````
 az resource list -o table
@@ -31,6 +56,13 @@ az role assignment list -o table
 ````
 az role assignment list | grep 'name\|principalName'
 ````
+
+### List role assignment and filter for `name` or `principalName` or `principalId`
+
+````
+az role assignment list | grep 'name\|principalName\|principalId'
+````
+
 ## List access
 
 ````
