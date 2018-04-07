@@ -8,6 +8,30 @@ categories: azure azure-cli cheatsheet
 * TOC
 {:toc}
 
+
+# Roles
+
+````
+az role definition list
+````
+
+````
+az role definition list -o table
+````
+
+````
+az role definition list --output json | jq '.[] | {"roleName":.properties.roleName, "description":.properties.description}'
+````
+
+````
+az role definition list --name "Contributor"
+````
+## Grant permission
+
+````
+az role assignment create --role "Owner" --assignee <Service_Principal>
+````
+
 # Role assignment
 
 --assignee
@@ -90,30 +114,11 @@ az role assignment list --assignee "ASSIGNEE-PRINCIPAL-NAME"
 az group export -n kakoje_acs_rg1
 ````
 
-## List limits in a region
+## List VM usage in a region
 
 ````
 az vm list-usage --location westeurope -o table
 ````
-
-# Roles
-
-````
-az role definition list
-````
-
-````
-az role definition list -o table
-````
-
-````
-az role definition list --output json | jq '.[] | {"roleName":.properties.roleName, "description":.properties.description}'
-````
-
-````
-az role definition list --name "Contributor"
-````
-
 
 # Locks
 
@@ -147,12 +152,6 @@ az network nsg list -o table
 
 ````
 az network nic list -o table
-````
-
-# Grant permission
-
-````
-az role assignment create --role "Owner" --assignee <Service_Principal>
 ````
 
 # List resources in a group
@@ -211,6 +210,8 @@ az group show -n HadzoGroup
 az group show -n HadzoGroup --query id -o tsv
 ````
 
+# Creating
+
 ## Creating VM's
 
 ````
@@ -234,7 +235,9 @@ az vm create \
 ````
 
 
-# Delete
+# Deletig
+
+## Deleting Resource Groups
 
 ````
 az vm delete -n MyVM -g MyResourceGroup
