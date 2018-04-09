@@ -87,7 +87,17 @@ az role assignment create \
 --role Contributor
 ````
 
-# List Roles for an Assignee
+## Delete a Role for an Assignee
+
+````
+az role assignment delete \
+--assignee 1d500143-702b-4ed8-a0cc-c46a1f29de1b \
+--role Reader
+````
+
+##Listing Roles
+
+### List Roles for an Assignee
 
 ````
 az role assignment list \
@@ -95,12 +105,22 @@ az role assignment list \
 -o table
 ````
 
-# Delete a Role for an Assignee
+### List role assignment
 
 ````
-az role assignment delete \
---assignee 1d500143-702b-4ed8-a0cc-c46a1f29de1b \
---role Reader
+az role assignment list -o table
+````
+
+### List role assignment and filter for `name` or `principalName`
+
+````
+az role assignment list | grep 'name\|principalName'
+````
+
+### List role assignment and filter for `name` or `principalName` or `principalId`
+
+````
+az role assignment list | grep 'name\|principalName\|principalId'
 ````
 
 # Listing
@@ -125,24 +145,6 @@ az vm image list --output table
 
 ````
 az resource list -o table
-````
-
-## List role assignment
-
-````
-az role assignment list -o table
-````
-
-### List role assignment and filter for `name` or `principalName`
-
-````
-az role assignment list | grep 'name\|principalName'
-````
-
-### List role assignment and filter for `name` or `principalName` or `principalId`
-
-````
-az role assignment list | grep 'name\|principalName\|principalId'
 ````
 
 ## List access
