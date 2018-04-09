@@ -52,15 +52,28 @@ az role definition list --output json | jq '.[] | {"roleName":.properties.roleNa
 ````
 
 ````
-az role definition list --name "Contributor"
-````
-## Grant permission
-
-````
-az role assignment create --role "Owner" --assignee <Service_Principal>
+az role definition list \
+--name "Contributor"
 ````
 
-# Role assignment
+## Create Role Assignment on a Subscription
+
+````
+az role assignment create \
+--role "Owner" \
+--assignee <Service_Principal>
+````
+
+## Create Role Assignment on a Resource Group
+
+````
+az role assignment create \
+--assignee user_domain.com#EXT#@xxxx.onmicrosoft.com \
+--role Reader \
+--resource-group HadzosResourceGroup
+````
+
+## Role assignment on a Subscription
 
 --assignee
 Represent a user, group, or service principal. supported format: object id, user sign-in name, or service principal name.
@@ -81,6 +94,7 @@ az role assignment list \
 --assignee 1d500143-702b-4ed8-a0cc-c46a1f29de1b \
 -o table
 ````
+
 # Delete a Role for an Assignee
 
 ````
