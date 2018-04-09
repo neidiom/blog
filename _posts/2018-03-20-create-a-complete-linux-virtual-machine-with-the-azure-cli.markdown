@@ -81,13 +81,13 @@ az group create \
 We will get list of groups in table format and filter by Resource Group name
 
 ````
-az group list -o table | grep "${RES_GROUP}"
+az group list -o table | grep $RES_GROUP
 ````
 
 or in `jsonc` format
 
 ````
-az group list -o jsonc | grep ${RES_GROUP}
+az group list -o jsonc | grep $RES_GROUP
 ````
 
 
