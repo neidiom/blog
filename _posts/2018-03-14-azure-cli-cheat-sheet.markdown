@@ -39,22 +39,8 @@ az ad user create \
 
 # Roles
 
-````
-az role definition list
-````
 
-````
-az role definition list -o table
-````
-
-````
-az role definition list --output json | jq '.[] | {"roleName":.properties.roleName, "description":.properties.description}'
-````
-
-````
-az role definition list \
---name "Contributor"
-````
+## Creating Role Assignment
 
 ## Create Role Assignment on a Subscription
 
@@ -73,7 +59,7 @@ az role assignment create \
 --resource-group HadzosResourceGroup
 ````
 
-## Role assignment on a Subscription
+## Create Role assignment on a Subscription
 
 --assignee
 Represent a user, group, or service principal. supported format: object id, user sign-in name, or service principal name.
@@ -96,6 +82,23 @@ az role assignment delete \
 ````
 
 ## Listing Roles
+
+````
+az role definition list
+````
+
+````
+az role definition list -o table
+````
+
+````
+az role definition list --output json | jq '.[] | {"roleName":.properties.roleName, "description":.properties.description}'
+````
+
+````
+az role definition list \
+--name "Contributor"
+````
 
 ### List Roles for an Assignee
 
