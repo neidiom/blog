@@ -8,6 +8,34 @@ categories: azure azure-cli cheatsheet
 * TOC
 {:toc}
 
+# Search for Commands
+
+````
+az find \
+--search-query user
+````
+or the short syntax
+
+````
+az find -q rbac
+````
+
+# Users
+
+## List Users
+
+````
+az ad user list -o table
+````
+
+## Create Users
+
+````
+az ad user create \
+--display-name Ned \
+--password MyStrongPass987$$ \
+--user-principal-name xxxxxx.xxxxxx#EXT#@XXXXXX.onmicrosoft.com
+````
 
 # Roles
 
