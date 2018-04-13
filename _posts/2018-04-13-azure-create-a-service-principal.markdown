@@ -49,7 +49,7 @@ RBAC stands for role based access control
 ````
 az ad sp create-for-rbac \
 --name=$SP_NAME \
---password=$SP_PASSWORD
+--password=$SP_PASSWORD \
 --role="Contributor" \
 --scopes="/subscriptions/${SUBSCRIPTION_ID}"
 ````
@@ -67,7 +67,36 @@ ResourceGroup=MyResGroup
 ````
 az ad sp create-for-rbac \
 --name=$SP_NAME \
---password=$SP_PASSWORD
+--password=$SP_PASSWORD \
 --role="Contributor" \
 --scopes="/subscriptions/${SUBSCRIPTION_ID}/resourceGroups/${ResourceGroup}"
+````
+**Remember the password**
+
+## Authenticate as the Service Principal
+
+### Getting info authentication info from the Service Principal
+
+We need to get fields below to authenticate our app.
+
+* appId
+* password
+* tenant
+
+## Set the variables required for login
+
+
+```
+APP_ID="YOUR_APP_ID"
+TENANT_ID="YOUR_TENANT_ID"
+````
+
+## Login as the Service Principal
+
+````
+az login \\
+--service-principal \\
+-u $APP_ID \\
+-p $SP_PASSWORD \\
+--tenant $TENANT_ID
 ````
