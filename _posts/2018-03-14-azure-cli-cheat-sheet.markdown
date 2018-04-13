@@ -25,7 +25,8 @@ az find -q rbac
 ## List Users
 
 ````
-az ad user list -o table
+az ad user list \
+-o table
 ````
 
 ## Create Users
@@ -180,7 +181,8 @@ az vm list-usage \
 # Locks
 
 ````
-az lock create --name ReadOnlyLock \
+az lock create \
+--name ReadOnlyLock \
 --resource-group HadzosResourceGroup \
 --lock-type CanNotDelete
 ````
@@ -261,20 +263,24 @@ az account list-locations \
 
 ````
 az group create \
--n HadzoGroup -l "westeurope"
+-n HadzoGroup \
+-l "westeurope"
 ````
 
 #### Show information for a specific group
 
 ````
-az group show -n HadzoGroup
+az group show \
+-n HadzoGroup
 ````
 
 * show only id of the group
 
 ````
 az group show \
--n HadzoGroup --query id -o tsv
+-n HadzoGroup \
+--query id \
+-o tsv
 ````
 
 # Creating
@@ -307,11 +313,14 @@ az vm create \
 ## Deleting Resource Groups
 
 ````
-az vm delete -n MyVM -g MyResourceGroup
+az vm delete \
+-n MyVM \
+-g MyResourceGroup
 ````
 
 ````
-az group delete -n MyGroup
+az group delete \
+-n MyGroup
 ````
 
 ````
