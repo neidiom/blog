@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Deploy azure-kafka-spark-adls via ARM template"
-date:   2018-04-03 10:34:07 +0100
+date:   2018-04-05 10:34:07 +0100
 categories: azure azure-cli
 ---
 
@@ -74,7 +74,7 @@ az group deployment create \
     --template-file azure-kafka-spark-adls.json \
     --debug \
     --parameters \
-    clusterPassword="$CLUSTER_PASSWORD" \
+    clusterPassword="${CLUSTER_PASSWORD}" \
     aadTenantId=$AAD_TENANT \
     servicePrincipalObjectId=$SP_OBJECTID \
     servicePrincipalApplicationId=$SP_APPID \

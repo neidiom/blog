@@ -21,20 +21,28 @@ az login
 ## Create a resource group
 
 ```
-az group create -n kakoje_acs_rg1 -l "westus"
+az group create \
+-n kakoje_acs_rg1 \
+-l "westus"
 ````
 
 
 ## Create an ACS (Azure Container Service) cluster
 
 ```
-az acs create --name kakoje-acs-cluster --resource-group kakoje_acs_rg1 --dns-prefix kakoje-app-9898
+az acs create \
+--name kakoje-acs-cluster \
+--resource-group kakoje_acs_rg1 \
+--dns-prefix kakoje-app-9898
 ````
 
 or use shorter syntax
 
 ````
-az acs create -n kakoje-acs-cluster -g kakoje_acs_rg1 -d applink789
+az acs create \
+-n kakoje-acs-cluster \
+-g kakoje_acs_rg1 \
+-d applink789
 ````
 
 # Managing
@@ -45,14 +53,17 @@ az acs create -n kakoje-acs-cluster -g kakoje_acs_rg1 -d applink789
 List clusters under a subscription
 
 ````
-az acs list --output table
+az acs list \
+--output table
 ````
 
 
 List clusters in a resource group
 
 ````
-az acs list -g kakoje_acs_rg1 --output table
+az acs list \
+-g kakoje_acs_rg1 \
+--output table
 ````
 
 
@@ -98,12 +109,15 @@ az acs scale \
 ## Delete a container service cluster
 
 ````
-az acs delete -g kakoje_acs_rg1 -n acs-cluster
+az acs delete \
+-g kakoje_acs_rg1 \
+-n acs-cluster
 ````
 ## Delete Resource Group
 
 ````
-az group delete -n kakoje_acs_rg1
+az group delete \
+-n kakoje_acs_rg1
 ````
 # Links
 
