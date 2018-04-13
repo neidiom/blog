@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Azure: Creating a Service Principal for Authentication"
-date:   2018-04-13 10:34:07 +0100
+date:   2018-04-13 07:34:07 +0100
 categories: azure service-principal authentication
 ---
 
