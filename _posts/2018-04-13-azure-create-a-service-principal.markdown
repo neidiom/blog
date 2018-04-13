@@ -30,13 +30,13 @@ Please set your **SubscriptionId** that you got from `az account list -o table` 
 SUBSCRIPTION_ID=0000000-0000-0000-0000-000000000000
 ````
 
-## Set the **Service Principal** password variable
+## Set the `Service Principal` password variable
 
 ````
 SP_PASSWORD="A_Add65f6b2010F3"
 ````
 
-## Set the **Service Principal** name variable
+## Set the `Service Principal` name variable
 
 ````
 SP_NAME="TerraFormServicePrincipal"
@@ -99,4 +99,12 @@ az login \
 -u $APP_ID \
 -p $SP_PASSWORD \
 --tenant $TENANT_ID
+````
+
+## Check the account type
+
+The type should be **servicePrincipal**
+
+````
+az account list
 ````
