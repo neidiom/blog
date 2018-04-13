@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Azure: Creating a Service Principal for Authentication"
-date:   2018-04-13 07:34:07 +0100
+date:   2018-04-12 07:34:07 +0100
 categories: azure service-principal authentication
 ---
 
@@ -94,9 +94,9 @@ TENANT_ID="YOUR_TENANT_ID"
 ## Login as the Service Principal
 
 ````
-az login \\
---service-principal \\
--u $APP_ID \\
--p $SP_PASSWORD \\
+az login \
+--service-principal \
+-u $APP_ID \
+-p $SP_PASSWORD \
 --tenant $TENANT_ID
 ````
