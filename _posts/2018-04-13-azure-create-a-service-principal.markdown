@@ -103,7 +103,7 @@ az login \
 
 ## Check the account type
 
-The type should be **servicePrincipal**
+After you login as Service Principal, the type should be **servicePrincipal**.
 
 ````
 az account list
