@@ -88,11 +88,13 @@ az role definition list
 ````
 
 ````
-az role definition list -o table
+az role definition list \
+-o table
 ````
 
 ````
-az role definition list --output json | jq '.[] | {"roleName":.properties.roleName, "description":.properties.description}'
+az role definition list \
+--output json | jq '.[] | {"roleName":.properties.roleName, "description":.properties.description}'
 ````
 
 ````
@@ -111,7 +113,8 @@ az role assignment list \
 ### List role assignment
 
 ````
-az role assignment list -o table
+az role assignment list \
+-o table
 ````
 
 ### List role assignment and filter for `name` or `principalName`
@@ -131,40 +134,47 @@ az role assignment list | grep 'name\|principalName\|principalId'
 ## Get info about VM from a Resource Group
 
 ````
-az vm list --resource-group $ResourceGroup
+az vm list \
+--resource-group $ResourceGroup
 ````
 
 ````
- az vm list --resource-group $ResourceGroup | grep 'id'
+ az vm list \
+ --resource-group $ResourceGroup | grep 'id'
 ````
 
 ## List images
 
 ````
-az vm image list --output table
+az vm image list \
+--output table
 ````
 
 ## List resources
 
 ````
-az resource list -o table
+az resource list \
+-o table
 ````
 
 ## List access
 
 ````
-az role assignment list --assignee "ASSIGNEE-PRINCIPAL-NAME"
+az role assignment list \
+--assignee "ASSIGNEE-PRINCIPAL-NAME"
 ````
 ## Generate an ARM template from an existing resource group
 
 ````
-az group export -n kakoje_acs_rg1
+az group export \
+-n kakoje_acs_rg1
 ````
 
 ## List VM usage in a region
 
 ````
-az vm list-usage --location westeurope -o table
+az vm list-usage \
+--location westeurope -o table
 ````
 
 # Locks
@@ -180,37 +190,43 @@ az lock create --name ReadOnlyLock \
 ## List VNets
 
 ````
-az network vnet list -o table
+az network vnet list \
+-o table
 ````
 
 ## List Public IPs
 
 ````
-az network public-ip list -o table
+az network public-ip list \
+-o table
 ````
 
 ## List Network Security Group
 
 ````
-az network nsg list -o table
+az network nsg list \
+-o table
 ````
 
 ## List NIC
 
 ````
-az network nic list -o table
+az network nic list \
+-o table
 ````
 
 # List resources in a group
 
 ````
-az resource list -g MyHadzoGroupName
+az resource list \
+-g MyHadzoGroupName
 ````
 
 # List resources in a group and filter for name or type
 
 ````
- az resource list -g HadzoGroup | grep "name\|type"
+ az resource list \
+ -g HadzoGroup | grep "name\|type"
  ````
 
 # List VMs
@@ -230,19 +246,22 @@ az group list
 * as table
 
 ````
-az group list --output=table
+az group list \
+--output=table
 ````
 
 * List locations
 
 ````
-az account list-locations -o table
+az account list-locations \
+-o table
 ````
 
 * Create group in `westeurope` region
 
 ````
-az group create -n HadzoGroup -l "westeurope"
+az group create \
+-n HadzoGroup -l "westeurope"
 ````
 
 #### Show information for a specific group
@@ -254,7 +273,8 @@ az group show -n HadzoGroup
 * show only id of the group
 
 ````
-az group show -n HadzoGroup --query id -o tsv
+az group show \
+-n HadzoGroup --query id -o tsv
 ````
 
 # Creating
@@ -295,5 +315,8 @@ az group delete -n MyGroup
 ````
 
 ````
-az group delete --name MyGroup --yes --no-wait
+az group delete \
+--name MyGroup \
+--yes \
+--no-wait
 ````
