@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Deploy azure-kafka-spark-adls via ARM template"
+title: "Azure: Deploy azure-kafka-spark-adls via ARM template"
 date:   2018-04-05 10:34:07 +0100
 categories: azure azure-cli
 ---

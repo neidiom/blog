@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Deploy Docker containers with Azure CLI"
+title: "Azure: Deploy Docker containers with Azure CLI"
 date:   2018-04-03 10:34:07 +0100
 categories: azure azure-cli docker
 ---

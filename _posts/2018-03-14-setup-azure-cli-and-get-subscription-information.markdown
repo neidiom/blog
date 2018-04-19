@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Setup Azure-cli and get subscription information"
+title: "Azure: Setup CLI and get subscription information"
 date:   2018-03-14 10:34:07 +0100
 categories: azure azure-cli
 ---

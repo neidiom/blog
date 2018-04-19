@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Create a complete Linux virtual machine with the Azure CLI"
+title: "Azure: Create a complete Linux virtual machine with the Azure CLI"
 date:   2018-03-20 10:34:07 +0100
 categories: azure azure-cli
 ---
