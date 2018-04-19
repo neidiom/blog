@@ -57,8 +57,8 @@ exit
 
 
 ````
-az vm deallocate \\
---resource-group myResourceGroup \\
+az vm deallocate \
+--resource-group myResourceGroup \
 --name myVM
 ````
 
